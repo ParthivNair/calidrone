@@ -57,7 +57,7 @@ export function initViewer(
   // ── Render-on-demand ──────────────────────────────────────
   let renderPending = false;
   let idleFrames = 0;
-  const IDLE_THRESHOLD = 120; // stop rendering after ~2 s of no movement
+  const IDLE_THRESHOLD = 120;
 
   function requestRender() {
     idleFrames = 0;
@@ -125,7 +125,6 @@ export function initViewer(
       const pivot = new THREE.Group();
       pivot.scale.setScalar(scale);
       pivot.rotation.x = Math.PI / 2;   // bring drone upright (side-on) instead of top-down
-      // pivot.rotation.y = Math.PI / 6;   // slight 3/4 turn toward viewer
       pivot.add(model);
       scene.add(pivot);
 

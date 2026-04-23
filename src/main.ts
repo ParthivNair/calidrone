@@ -1,12 +1,19 @@
 import './styles.css';
 
-// ── Sticky nav shadow on scroll ───────────────────────────────
+// ── Sticky nav shadow + viewer dock on scroll ────────────────
 const nav = document.getElementById('nav')!;
-window.addEventListener('scroll', () => {
+const viewerWrap = document.getElementById('viewer-wrap')!;
+
+function onScroll() {
   nav.style.boxShadow = window.scrollY > 10
     ? '0 1px 24px rgba(0,0,0,0.5)'
     : 'none';
-}, { passive: true });
+
+  const dockThreshold = window.innerHeight * 0.2;
+  viewerWrap.classList.toggle('docked', window.scrollY > dockThreshold);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
 // ── 3D Viewer ─────────────────────────────────────────────────
 const canvas = document.getElementById('drone-canvas') as HTMLCanvasElement;
