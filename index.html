@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calidrone — [Project Name]</title>
+    <link rel="preload" as="fetch" href="/models/drone5.glb" crossorigin />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <!-- ── Navigation ─────────────────────────────────────────── -->
+    <nav id="nav">
+      <span class="nav-logo">Calidrone</span>
+      <ul>
+        <li><a href="#description">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#access">Try It</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── Hero ──────────────────────────────────────────────── -->
+    <section id="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Cal Poly Capstone Project</p>
+        <h1>Calidrone</h1>
+        <p class="hero-tagline">[Project one-sentence description — e.g., "An autonomous inspection drone that maps infrastructure in GPS-denied environments."]</p>
+        <div class="hero-ctas">
+          <a href="#access" class="btn btn-primary">Try It</a>
+          <a href="https://github.com/[your-org]/[your-repo]" class="btn btn-secondary" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <p class="hero-hint">← Drag to spin the model</p>
+      </div>
+
+      <div class="hero-viewer" id="viewer-wrap">
+        <canvas id="drone-canvas"></canvas>
+        <div class="loader-overlay" id="loader-overlay">
+          <div class="loader-inner">
+            <div class="loader-ring"></div>
+            <div class="loader-progress-wrap">
+              <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
+              <p class="loader-label" id="loader-label">Loading model…</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 1. Project Description & Value Proposition ─────────── -->
+    <section id="description" class="section">
+      <div class="container">
+        <span class="section-tag">01 — Project Description</span>
+        <h2>What is Calidrone?</h2>
+        <p class="section-lead">[One clear sentence describing what the project is and who it is for — e.g., "Calidrone is an autonomous, low-cost inspection drone designed for civil engineers who need to survey hard-to-reach infrastructure without GPS."]</p>
+
+        <div class="two-col">
+          <div>
+            <h3>The Problem</h3>
+            <p>[Describe the problem this project solves. Why does it matter? What is the pain point for your target audience? 2–3 sentences.]</p>
+          </div>
+          <div>
+            <h3>Our Solution — So What?</h3>
+            <p>[Explain what makes your approach interesting or novel. Why is this better than existing solutions? What is the "so what?" that makes a reader care? 2–3 sentences.]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 2. Key Features or Highlights ─────────────────────── -->
+    <section id="features" class="section section-alt">
+      <div class="container">
+        <span class="section-tag">02 — Key Features</span>
+        <h2>What It Can Do</h2>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">◈</div>
+            <h3>[Feature 1 Name]</h3>
+            <p>[Describe this feature from the user's perspective — what can they do or see because of it? 1–2 sentences.]</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">◈</div>
+            <h3>[Feature 2 Name]</h3>
+            <p>[Describe this feature from the user's perspective. 1–2 sentences.]</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">◈</div>
+            <h3>[Feature 3 Name]</h3>
+            <p>[Describe this feature from the user's perspective. 1–2 sentences.]</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">◈</div>
+            <h3>[Feature 4 Name]</h3>
+            <p>[Describe this feature from the user's perspective. 1–2 sentences.]</p>
+          </div>
+        </div>
+
+        <!-- Demo figure / screenshot -->
+        <div class="demo-figure">
+          <div class="demo-placeholder">
+            <span>Screenshot, screen recording, or demo figure goes here</span>
+            <small>Replace this block with an &lt;img&gt; or &lt;video&gt; showing the project in action</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 3. How to Access or Try It ─────────────────────────── -->
+    <section id="access" class="section">
+      <div class="container">
+        <span class="section-tag">03 — How to Try It</span>
+        <h2>Get Started</h2>
+
+        <div class="access-grid">
+          <div class="access-block">
+            <h3>Quick Start</h3>
+            <a href="https://github.com/[your-org]/[your-repo]" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub →</a>
+            <a href="https://[your-demo-url]" class="btn btn-secondary" target="_blank" rel="noopener">Live Demo →</a>
+          </div>
+
+          <div class="access-block">
+            <h3>Prerequisites</h3>
+            <ul>
+              <li>[Prerequisite 1 — e.g., "Python 3.10+"]</li>
+              <li>[Prerequisite 2 — e.g., "ROS 2 Humble installed"]</li>
+              <li>[Prerequisite 3 — e.g., "A compatible flight controller (listed in docs)"]</li>
+            </ul>
+          </div>
+
+          <div class="access-block">
+            <h3>Setup Steps</h3>
+            <ol>
+              <li>[Step 1 — e.g., "Clone the repository"]</li>
+              <li>[Step 2 — e.g., "Install dependencies with <code>pip install -r requirements.txt</code>"]</li>
+              <li>[Step 3 — e.g., "Flash the firmware to your flight controller"]</li>
+              <li>[Step 4 — e.g., "Run <code>ros2 launch calidrone main.launch.py</code>"]</li>
+            </ol>
+          </div>
+
+          <div class="access-block">
+            <h3>System Requirements</h3>
+            <ul>
+              <li>[Platform — e.g., "Ubuntu 22.04 / macOS 13+"]</li>
+              <li>[Hardware — e.g., "Hardware in the loop: Raspberry Pi 4 or better"]</li>
+              <li>[Other — e.g., "Internet connection for map tile downloads"]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 4. Team Credits ────────────────────────────────────── -->
+    <section id="team" class="section section-alt">
+      <div class="container">
+        <span class="section-tag">04 — Team</span>
+        <h2>Who Built This</h2>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">[TM]</div>
+            <h3>[Team Member Name]</h3>
+            <p class="team-role">[Role — e.g., "Software Lead"]</p>
+            <a href="https://github.com/[username]" target="_blank" rel="noopener" class="team-link">GitHub →</a>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">[TM]</div>
+            <h3>[Team Member Name]</h3>
+            <p class="team-role">[Role — e.g., "Hardware Lead"]</p>
+            <a href="https://github.com/[username]" target="_blank" rel="noopener" class="team-link">GitHub →</a>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">[TM]</div>
+            <h3>[Team Member Name]</h3>
+            <p class="team-role">[Role — e.g., "Controls & Navigation"]</p>
+            <a href="https://github.com/[username]" target="_blank" rel="noopener" class="team-link">GitHub →</a>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">[TM]</div>
+            <h3>[Team Member Name]</h3>
+            <p class="team-role">[Role — e.g., "Computer Vision"]</p>
+            <a href="https://github.com/[username]" target="_blank" rel="noopener" class="team-link">GitHub →</a>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <h3>Contact &amp; Feedback</h3>
+          <p>Questions or feedback? Open an issue on <a href="https://github.com/[your-org]/[your-repo]/issues" target="_blank" rel="noopener">GitHub Issues</a> or email us at <a href="mailto:[team-email@example.com]">[team-email@example.com]</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer>
+      <div class="container footer-inner">
+        <span>© 2025 Calidrone Team — Cal Poly Capstone</span>
+        <nav class="footer-links">
+          <a href="#hero">Back to top ↑</a>
+          <a href="https://github.com/[your-org]/[your-repo]" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
