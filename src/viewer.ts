@@ -48,6 +48,7 @@ export function initViewer(
   controls.enableDamping = true;
   controls.dampingFactor = 0.08;
   controls.enablePan = false;
+  controls.enableZoom = false;
   controls.minDistance = 0.5;
   controls.maxDistance = 10;
   controls.autoRotate = true;
@@ -115,7 +116,7 @@ export function initViewer(
       const center = box.getCenter(new THREE.Vector3());
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
-      const scale = 1.6 / maxDim;
+      const scale = 2 / maxDim;
 
       // Offset model so its geometry center sits at pivot origin
       model.position.copy(center).negate();
@@ -123,13 +124,13 @@ export function initViewer(
       // Pivot handles uniform scale + display rotation, anchored at world origin
       const pivot = new THREE.Group();
       pivot.scale.setScalar(scale);
-      pivot.rotation.x = Math.PI;       // flip to show top face
-      pivot.rotation.y = Math.PI / 5;   // nose angled ~36° toward viewer
+      pivot.rotation.x = Math.PI / 2;   // bring drone upright (side-on) instead of top-down
+      // pivot.rotation.y = Math.PI / 6;   // slight 3/4 turn toward viewer
       pivot.add(model);
       scene.add(pivot);
 
-      // Camera from front-above for a 3/4 hero perspective
-      camera.position.set(0, 0.7, 4.2);
+      // Camera near eye-level for a side-on hero perspective
+      camera.position.set(0, 0.15, 3.4);
       controls.target.set(0, 0, 0);
       controls.update();
 

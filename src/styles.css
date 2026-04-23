@@ -108,22 +108,23 @@ code {
 
 /* ── Hero ─────────────────────────────────────────────────────── */
 #hero {
+  position: relative;
   min-height: 100vh;
   padding-top: var(--nav-h);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
-  gap: 2rem;
   padding-left: clamp(1.5rem, 5vw, 5rem);
   padding-right: clamp(1rem, 3vw, 2rem);
   overflow: hidden;
 }
 
 .hero-text {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  max-width: 520px;
+  max-width: 560px;
 }
 
 .hero-eyebrow {
@@ -162,13 +163,15 @@ code {
 
 /* ── 3D Viewer ───────────────────────────────────────────────── */
 .hero-viewer {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  max-height: calc(100vh - var(--nav-h) - 4rem);
-  border-radius: 1.5rem;
+  height: 100%;
   overflow: hidden;
-  background: radial-gradient(ellipse at 60% 40%, rgba(74,158,255,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 65% 50%, rgba(74,158,255,0.08) 0%, transparent 70%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 35%, #000 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 35%, #000 100%);
 }
 
 #drone-canvas {
@@ -490,20 +493,16 @@ footer {
 /* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
   #hero {
-    grid-template-columns: 1fr;
     padding-top: calc(var(--nav-h) + 2rem);
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    min-height: unset;
     padding-bottom: 3rem;
-    gap: 2.5rem;
   }
 
   .hero-viewer {
-    max-height: 55vw;
-    aspect-ratio: unset;
-    height: 55vw;
-    min-height: 280px;
+    opacity: 0.55;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 40%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 40%, #000 100%);
   }
 
   .two-col { grid-template-columns: 1fr; }
